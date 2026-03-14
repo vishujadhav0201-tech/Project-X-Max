@@ -18,12 +18,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6277640240780585"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
+        <meta name="google-adsense-account" content="ca-pub-6277640240780585" />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6277640240780585" crossOrigin="anonymous"></script>
       </head>
       <body className="antialiased flex flex-col min-h-screen">
         <FloatingNavbar />
