@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import FloatingNavbar from "@/components/FloatingNavbar";
 import Footer from "@/components/Footer";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "LinkFlow — Download Link Simulator",
@@ -16,6 +17,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6277640240780585"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+      </head>
       <body className="antialiased flex flex-col min-h-screen">
         <FloatingNavbar />
         <main className="flex-1 mt-20">{children}</main>
