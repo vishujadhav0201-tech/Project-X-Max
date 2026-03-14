@@ -1,0 +1,181 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Google Sans (Product Sans) - loaded via CDN */
+@font-face {
+  font-family: 'Google Sans';
+  src: url('https://fonts.gstatic.com/s/productsans/v5/HYvgU2fE2nRJvZ5JFAumwegdm0LZdjqr5-oayXSOefg.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Google Sans';
+  src: url('https://fonts.gstatic.com/s/productsans/v5/N0c8y_dasvG2CpRO_AMKfKS-S-2srlxPsLBUZw.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Google Sans';
+  src: url('https://fonts.gstatic.com/s/productsans/v5/pxicypQkot1TnFhsFMOfGShVE9eOcEg.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --liquid-bg: #00072D;
+  --liquid-surface: #001C55;
+  --liquid-accent: #002472;
+  --liquid-highlight: #0E6BA8;
+  --liquid-text: #A6E1FA;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--liquid-bg);
+}
+
+body {
+  color: white;
+  background: var(--liquid-bg);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--liquid-text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+a {
+  color: var(--liquid-text);
+  text-decoration: none;
+}
+
+/* ===== Form ===== */
+.input-field {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(166, 225, 250, 0.2);
+  background-color: rgba(0, 28, 85, 0.3);
+  backdrop-filter: blur(12px);
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+.input-field::placeholder {
+  color: rgba(166, 225, 250, 0.5);
+}
+.input-field:focus {
+  border-color: var(--liquid-highlight);
+  background-color: rgba(0, 28, 85, 0.5);
+  box-shadow: 0 0 0 2px rgba(14, 107, 168, 0.3);
+}
+
+/* ===== Specular Highlight Effect (Cursor Tracking in React, fallback here) ===== */
+.specular-hover {
+  position: relative;
+  overflow: hidden;
+}
+.specular-hover::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(166, 225, 250, 0.15), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  z-index: 10;
+}
+.specular-hover:hover::before {
+  opacity: 1;
+}
+
+/* Removed legacy layout styles */
+
+/* ===== Loader ring ===== */
+.loader-ring {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+.loader-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  margin: 6px;
+  border: 4px solid;
+  border-radius: 50%;
+  animation: loaderRing 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: var(--liquid-text) transparent transparent transparent;
+}
+.loader-ring div:nth-child(1) { animation-delay: -0.45s; }
+.loader-ring div:nth-child(2) { animation-delay: -0.3s; }
+.loader-ring div:nth-child(3) { animation-delay: -0.15s; }
+
+@keyframes loaderRing {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ===== Progress ===== */
+.progress-bar-fill {
+  background: var(--liquid-text);
+  transition: width 1s linear;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@keyframes float1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(5%, 10%) scale(1.1); }
+  66% { transform: translate(-5%, 5%) scale(0.9); }
+}
+@keyframes float2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-10%, -5%) scale(1.05); }
+  66% { transform: translate(5%, -15%) scale(0.95); }
+}
+@keyframes float3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(15%, -10%) scale(1.15); }
+  66% { transform: translate(-10%, 10%) scale(0.85); }
+}
+
+.animate-float-1 { animation: float1 15s ease-in-out infinite; }
+.animate-float-2 { animation: float2 20s ease-in-out infinite; }
+.animate-float-3 { animation: float3 18s ease-in-out infinite; }
