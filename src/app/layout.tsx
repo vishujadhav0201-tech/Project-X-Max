@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "LinkFlow — Download Link Simulator",
   description:
     "A research and educational demo to study user behavior and redirection flows on download aggregator websites.",
+  other: {
+    "google-adsense-account": "ca-pub-6277640240780585"
+  }
 };
 
 export default function RootLayout({
@@ -17,11 +20,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <meta name="google-adsense-account" content="ca-pub-6277640240780585" />
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6277640240780585" crossOrigin="anonymous"></script>
-      </head>
       <body className="antialiased flex flex-col min-h-screen">
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6277640240780585"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
         <FloatingNavbar />
         <main className="flex-1 mt-20">{children}</main>
         <Footer />
