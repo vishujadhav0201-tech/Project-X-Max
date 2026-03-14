@@ -50,6 +50,8 @@ export default function HomePage() {
     { name: 'Ullu', desc: 'Stream and download Ullu originals in high quality with one click.' },
     { name: 'Alt Balaji', desc: 'Access Alt Balaji shows and movies. Fast download, HD quality.' },
     { name: 'MX Player', desc: 'Download MX Player videos and shows directly to your device.' },
+    { name: 'Instagram', desc: 'Download Instagram reels, stories, and videos seamlessly.' },
+    { name: 'Facebook', desc: 'Save Facebook videos locally in high definition.' },
   ];
 
   const features = [
@@ -258,8 +260,10 @@ export default function HomePage() {
                   transition={{ delay: i * 0.15, duration: 0.6 }}
                   className="relative z-10 flex flex-col items-center text-center"
                 >
-                  <LiquidGlassAdvanced as="div" className="w-24 h-24 rounded-[2rem] flex items-center justify-center mb-6 shadow-xl shadow-black/20">
-                    <item.Icon className="w-10 h-10 text-[#A6E1FA]" strokeWidth={1.5} />
+                  <LiquidGlassAdvanced as="div" className="w-24 h-24 rounded-[2rem] mb-6 shadow-xl shadow-black/20">
+                    <div className="w-full h-full flex items-center justify-center">
+                      <item.Icon className="w-10 h-10 text-[#A6E1FA]" strokeWidth={1.5} />
+                    </div>
                   </LiquidGlassAdvanced>
                   <div className="text-xs font-bold text-[#0E6BA8] tracking-widest mb-3 uppercase">Step {i + 1}</div>
                   <h3 className="font-bold text-white text-xl mb-3">{item.title}</h3>

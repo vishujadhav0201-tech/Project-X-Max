@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Download, Shield, Globe, Smartphone, Zap, Mail } from 'lucide-react';
+import { Download, Shield, Globe, Smartphone, Zap } from 'lucide-react';
 
 export default function Footer() {
   const platforms = [
